@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,7 +39,17 @@ public class Main {
         //System.out.println(bus2.getPassengers());
         //System.out.println(bus3.getPassengers());
         ArrayList<Bus> allBus = new ArrayList<Bus>();
+        allBus.add(bus1);
+        allBus.add(bus2);
+        allBus.add(bus3);
+
+        System.out.println(allBus);
         System.out.println(bus1.calculateAllWeight());
+        System.out.println(bus2.calculateAllWeight());
+        System.out.println(bus3.calculateAllWeight());
+        allBus.sort(Comparator.naturalOrder());
+        System.out.println(allBus);
+
     }
 
 }
