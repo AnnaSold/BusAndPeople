@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.*;
+import java.util.function.ToDoubleFunction;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,19 +19,19 @@ public class Main {
         Passaengers pas12 = new Passaengers("Serj", 48, 98.3);
 
         //
-        Bus bus1 = new Bus(13,50);
+        Bus bus1 = new Bus(13, 50);
         bus1.enterPassenger(pas1);
         bus1.enterPassenger(pas2);
         bus1.enterPassenger(pas3);
 
-        Bus bus2 = new Bus(5,158);
+        Bus bus2 = new Bus(5, 158);
         bus2.enterPassenger(pas4);
         bus2.enterPassenger(pas5);
         bus2.enterPassenger(pas6);
         bus2.enterPassenger(pas7);
         bus2.enterPassenger(pas8);
 
-        Bus bus3 = new Bus(4,200);
+        Bus bus3 = new Bus(4, 200);
         bus3.enterPassenger(pas9);
         bus3.enterPassenger(pas10);
         bus3.enterPassenger(pas11);
@@ -49,6 +51,30 @@ public class Main {
         System.out.println(bus3.calculateAllWeight());
         allBus.sort(Comparator.naturalOrder());
         System.out.println(allBus);
+        mediana(bus1);
+    }
+        // Посчитать медиану
+
+        private static double mediana(Bus bus) { // нужен сразу отсортированный
+            //bus.calculateAllWeight();
+            bus.getPassengers().sort(Comparator.comparingDouble( Passaengers ::getWeight));
+
+            int len = bus.getPassengers().size();
+            System.out.println(len);
+            if(len %2 == 1){
+            //double m = bus.;
+                return bus.getPassengers().getWeight()
+                        .get(len/2);
+
+            ;}
+//    if(len %2 == 1)
+//            return nums.get(len/2);
+//        else
+//        {
+//            int a = nums.get(len/2);
+//            int b = nums.get(len/2 - 1);
+//            return (a+b) / 2.0;
+//            }
 
     }
 
